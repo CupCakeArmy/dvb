@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+
+<head>
+	<link href="res/fonts/Army/import.css" rel="stylesheet" type="text/css">
+	<link href="res/css/main.css" rel="stylesheet" type="text/css">
+	<link href="res/css/layout.css" rel="stylesheet" type="text/css">
+	<link href="res/css/screen.css" rel="stylesheet" type="text/css">
+	<link href="res/css/top.css" rel="stylesheet" type="text/css">
+	<link href="res/css/weather.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<div class="fill" id="app">
+		<div class="container fill">
+			<div class="top">
+				<div class="fill" id="datetime">
+					<dvb-time></dvb-time>
+					<dvb-date></dvb-date>
+				</div>
+			</div>
+			<div class="body">
+				<div class="fill" id="screen">
+
+					<!-- ZELLESCHER -->
+					<dvb-line stop-Id="33000312" line="11"></dvb-line>
+					<dvb-line stop-Id="33000312" line="61"></dvb-line>
+
+					<!-- STREHLI -->
+					<dvb-line stop-Id="33000311" line="66"></dvb-line>
+
+					<!-- Räcknitzhöhe -->
+					<dvb-line stop-Id="33000313" line="85"></dvb-line>
+				</div>
+			</div>
+			<div class="side">
+				<div class="fill weather-container">
+					<dvb-weather offset="0"></dvb-weather>
+					<dvb-weather offset="14400"></dvb-weather>
+					<dvb-weather offset="28800"></dvb-weather>
+					<dvb-weather offset="43200"></dvb-weather>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- VUE Templates -->
+
+	<script type="text/x-template" id="tmpl-dvb-weather">
+		<div class="weather-item">
+			<span class="temperature">{{cur}}</span>
+		</div>
+	</script>
+
+	<script type="text/x-template" id="tmpl-dvb-line">
+		<div class="fill line">
+			<div class="head">
+				<div class="title">
+					<span>{{stopName}}</span>
+				</div>
+				<br>
+				<div class="lineNumber">{{lineNumber}}</div>
+			</div>
+			<div class="body">
+				<template v-for="(direction, name) in directions">
+					<div class="title">
+						<span>{{ name }}</span>
+					</div>
+					<div v-for="data in direction" v-if="data.RealTime" class="departure">
+						{{ new Date() | timeInterval(data.RealTime) }}
+						<span class="min">min</span>
+					</div>
+				</template>
+			</div>
+		</div>
+	</script>
+
+	<!-- VENDOR -->
+	<script src="res/js/vendor/vue.min.js"></script>
+
+	<!-- VUE Controller -->
+	<script src="res/js/vue/dvb-date.js"></script>
+	<script src="res/js/vue/dvb-time.js"></script>
+	<script src="res/js/vue/dvb-weather.js"></script>
+	<script src="res/js/vue/dvb-line.js"></script>
+
+	<script src="res/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+/* LAYOUT */
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr calc(100vh / 4);
+	grid-template-rows: auto 1fr;
+	grid-template-areas: "top side" "body side";
+	background: var(--clr-light);
+	color: var(--clr-dark);
+}
+
+.container .top {
+	grid-area: top;
+}
+
+.container .side {
+	grid-area: side;
+}
+
+.container .body {
+	grid-area: body;
+}

@@ -1,0 +1,25 @@
+/* WEATHER */
+
+.weather-container {
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: 100%;
+	grid-gap: 1em;
+	padding: 1em;
+}
+
+.weather-container .weather-item {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	position: relative;
+}
+
+.weather-container .weather-item .temperature {
+	position: absolute;
+	bottom: 10%;
+	right: 10%;
+	width: 80%;
+	text-align: right;
+	font-size: var(--font-xl);
+}

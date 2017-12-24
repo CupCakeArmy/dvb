@@ -1,0 +1,77 @@
+/* SCREEN */
+
+#screen {
+	box-shadow: 1em -1em 8em -4em rgba(0, 0, 0, 1);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 2em;
+}
+
+#screen .line {
+	flex: 1;
+	padding: .5em;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	background: hsla(0, 0, 0, 0.5);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+
+/* HEAD */
+
+#screen .head {
+	flex: 0 1 auto;
+}
+
+#screen .head .title {
+	font-size: var(--font-xl);
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: .15em 0em;
+}
+
+#screen .head .title>span {
+	background-color: var(--clr-accent-1);
+	padding: 1em 0;
+}
+
+#screen .head .lineNumber {
+	font-size: var(--font-xxl);
+}
+
+
+/* BODY */
+
+#screen .body {
+	flex: 1 0 auto;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+#screen .body .departure {
+	font-size: var(--font-xl);
+}
+
+#screen .body .departure .min {
+	font-size: var(--font-xs);
+}
+
+#screen .body .title {
+	font-size: var(--font-xl);
+	padding: .15em 0em;
+	overflow: hidden;
+	margin: .5em 0;
+}
+
+#screen .body .title>span {
+	background-color: var(--clr-accent-3);
+	padding: var(--font-xl) 0;
+}

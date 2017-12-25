@@ -39,7 +39,6 @@ Vue.component('dvb-line', {
 			clearInterval(this.watcherId)
 		},
 		update() {
-			console.log('Updating...')
 			fetch('https://webapi.vvo-online.de/dm', {
 					mode: 'cors',
 					headers: {
@@ -68,7 +67,8 @@ Vue.component('dvb-line', {
 					this.directions[i.Direction] = []
 
 				// Inset departure into array
-				this.directions[i.Direction].push(i)
+				if (this.directions[i.Direction].length < 3)
+					this.directions[i.Direction].push(i)
 			}
 
 			this.directions = Object.keys(this.directions)

@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="res/fonts/Army/import.css" rel="stylesheet" type="text/css">
 	<link href="res/css/main.css" rel="stylesheet" type="text/css">
 	<link href="res/css/layout.css" rel="stylesheet" type="text/css">
@@ -56,7 +57,7 @@
 	<script type="text/x-template" id="tmpl-dvb-line">
 		<div class="fill line">
 			<div class="head">
-				<div class="title">
+				<div class="title ellipsis">
 					<span>{{stopName}}</span>
 				</div>
 				<br>
@@ -64,7 +65,7 @@
 			</div>
 			<div class="body">
 				<template v-for="(direction, name) in directions">
-					<div class="title">
+					<div class="title ellipsis">
 						<span>{{ name }}</span>
 					</div>
 					<div v-for="data in direction" v-if="data.RealTime" class="departure">

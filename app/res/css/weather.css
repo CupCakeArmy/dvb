@@ -2,10 +2,15 @@
 
 .weather-container {
 	display: grid;
-	grid-template-rows: repeat(4, 1fr);
-	grid-template-columns: 100%;
+	grid-template: 100% / repeat(4, 1fr);
 	grid-gap: 1em;
 	padding: 1em;
+}
+
+@media only screen and (min-width: 70em) {
+	.weather-container {
+		grid-template: repeat(4, 1fr) / 100%;
+	}
 }
 
 .weather-container .weather-item {

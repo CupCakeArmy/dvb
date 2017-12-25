@@ -2,11 +2,17 @@
 
 .container {
 	display: grid;
-	grid-template-columns: 1fr calc(100vh / 4);
-	grid-template-rows: auto 1fr;
-	grid-template-areas: "top side" "body side";
+	grid-template: calc(100vw / 4) 5em 1fr / 100%;
+	grid-template-areas: "side" "top" "body";
 	background: var(--clr-light);
 	color: var(--clr-dark);
+}
+
+@media only screen and (min-width: 70em) {
+	.container {
+		grid-template: auto 1fr / 1fr calc(100vh / 4);
+		grid-template-areas: "top side" "body side";
+	}
 }
 
 .container>div {

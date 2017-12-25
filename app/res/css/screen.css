@@ -26,9 +26,6 @@
 
 #screen .head .title {
 	font-size: var(--font-xl);
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
 	padding: var(--mrg-text) 0em;
 }
 

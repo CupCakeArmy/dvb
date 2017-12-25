@@ -17,6 +17,18 @@
 	padding: 0;
 }
 
+@media only screen and (max-width: 70em) {
+	* {
+		--font-xxxl: 4em;
+		--font-xxl: 2.5em;
+		--font-xl: 1.5em;
+		--font-lg: 1.2em;
+		--font-md: 1em;
+		--font-sm: .8em;
+		--font-xs: .6em;
+	}
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -31,4 +43,10 @@ body {
 .fill {
 	height: 100%;
 	width: 100%;
+}
+
+.ellipsis {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }

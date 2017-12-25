@@ -11,6 +11,7 @@
 	--font-md: 1em;
 	--font-sm: .8em;
 	--font-xs: .6em;
+	--mrg-text: .15em;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;

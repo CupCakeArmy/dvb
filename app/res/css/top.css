@@ -11,7 +11,7 @@
 
 #time {
 	grid-column: 1 / span 1;
-	grid-row: 1;
+	grid-row: 1 / span 2;
 	font-size: var(--font-xxxl);
 	text-align: center;
 }

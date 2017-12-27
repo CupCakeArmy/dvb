@@ -2,7 +2,9 @@ const http = require('http')
 const https = require('https')
 
 // GET YOUR OWN AT: https://openweathermap.org/appid
-const APP_KEY = 'myAppId'
+const APP_KEY = 'db597413fa4f4a8545b0f2bb43262f11'
+
+const LISTEN = `${__dirname}/run.sock`
 
 const REGEXP = {
   URL: /^\/[\d]{1,8}$/
@@ -87,4 +89,21 @@ const server = http.createServer(async(req, res) => {
   res.end()
 })
 
-server.listen(8000)
+function exit() {
+  console.log('Bye Bye')
+  server.close()
+}
+
+function start() {
+  console.log(`Started server on: ${LISTEN}`)
+  server.listen(LISTEN)
+}
+
+// Register exit function
+process.on('exit', exit)
+process.on('SIGINT', exit)
+process.on('SIGQUIT', exit)
+process.on('SIGTERM', exit)
+process.on('uncaughtException', exit)
+
+start()

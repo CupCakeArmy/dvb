@@ -5,7 +5,6 @@
   "dependencies": {},
   "devDependencies": {
     "css-loader": "latest",
-    "forever": "latest",
     "style-loader": "latest",
     "webpack": "latest"
   },

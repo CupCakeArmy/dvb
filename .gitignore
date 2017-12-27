@@ -1,2 +1,9 @@
-# Ignore Node Deps
+# OS X
+.DS_Store*
+._*
+
+# npm
 node_modules
+package-lock.json
+*.log
+*.gz

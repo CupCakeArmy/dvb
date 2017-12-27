@@ -2,15 +2,17 @@
   "name": "dvb",
   "version": "1.0.0",
   "description": "DVB Monitor App",
-  "dependencies": {},
-  "devDependencies": {
-    "css-loader": "latest",
-    "style-loader": "latest",
-    "webpack": "latest"
+  "dependencies": {
+    "forever": "latest"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/CupCakeArmy/dvb"
+  },
+  "scripts": {
+    "start": "forever start cache.js",
+    "stop": "forever stop cache.js",
+    "restart": "forever restart cache.js"
   },
   "author": "",
   "license": "MIT"

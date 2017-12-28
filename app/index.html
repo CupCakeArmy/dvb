@@ -38,9 +38,9 @@
 			<div class="side">
 				<div class="fill weather-container">
 					<dvb-weather offset="0"></dvb-weather>
-					<dvb-weather offset="14400"></dvb-weather>
-					<dvb-weather offset="28800"></dvb-weather>
-					<dvb-weather offset="43200"></dvb-weather>
+					<dvb-weather offset="1"></dvb-weather>
+					<dvb-weather offset="2"></dvb-weather>
+					<dvb-weather offset="3"></dvb-weather>
 				</div>
 			</div>
 		</div>
@@ -50,7 +50,10 @@
 
 	<script type="text/x-template" id="tmpl-dvb-weather">
 		<div class="weather-item">
-			<span class="temperature">{{cur}}</span>
+			<span class="temperature">
+				{{cur}}
+				<small>C</small>
+			</span>
 		</div>
 	</script>
 

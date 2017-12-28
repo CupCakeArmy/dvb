@@ -22,9 +22,9 @@
 
 .weather-container .weather-item .temperature {
 	position: absolute;
-	bottom: 10%;
+	top: 6%;
 	right: 10%;
 	width: 80%;
 	text-align: right;
-	font-size: var(--font-xl);
+	font-size: var(--font-lg);
 }

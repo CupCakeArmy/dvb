@@ -5,40 +5,20 @@ Vue.component('dvb-weather', {
 	},
 	data() {
 		return {
-			hz: 10,
+			hz: 30,
 			cur: '...',
-			images: {
-				'sunny': 11,
-				'rain': 4,
-				'snow': 6,
-				'clouds': 10,
-				'storm': 1,
-				'': 9,
-			},
-			states: {
-				'fog': 2,
-				'wind': 3,
-				'frosty': 8,
-				'wet': 12,
-				'cold': 7,
-			},
-			static: {
-				'0': {
-					image: 11,
-					temp: '23'
-				},
-				'14400': {
-					image: 4,
-					temp: '11'
-				},
-				'28800': {
-					image: 6,
-					temp: '-1'
-				},
-				'43200': {
-					image: 1,
-					temp: '7'
-				},
+			zip: '01217',
+			url: 'https://wundtstr.club/cache',
+			mapping: {
+				1: 11,
+				2: 9,
+				3: 10,
+				4: 10,
+				9: 10,
+				10: 4,
+				11: 1,
+				13: 6,
+				50: 2,
 			}
 		}
 	},
@@ -50,14 +30,21 @@ Vue.component('dvb-weather', {
 		stopWatcher() {
 			clearInterval(this.watcherId)
 		},
-		update() {},
+		async update() {
+			fetch(`${this.url}/${this.zip}`, {
+				mode: 'cors',
+				cache: 'default'
+			}).then(res => res.json()).then(res => {
+
+				const data = res.list[this.offset]
+				const image = this.mapping[parseInt(data.weather[0].icon)]
+				this.$el.style.backgroundImage = `url('res/img/${image}.png')`
+				this.cur = data.main.temp
+
+			})
+		},
 	},
 	created() {
 		this.startWatcher()
-	},
-	mounted() {
-		const data = this.static[this.offset]
-		this.$el.style.backgroundImage = `url('res/img/${data.image}.png')`
-		this.cur = data.temp
 	},
 })

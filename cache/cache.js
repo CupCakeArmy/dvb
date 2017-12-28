@@ -4,7 +4,7 @@ const https = require('https')
 // GET YOUR OWN AT: https://openweathermap.org/appid
 const APP_KEY = 'db597413fa4f4a8545b0f2bb43262f11'
 
-const LISTEN = `${__dirname}/run.sock`
+const LISTEN = '8000'
 
 const REGEXP = {
   URL: /^\/[\d]{1,8}$/

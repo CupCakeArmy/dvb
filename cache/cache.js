@@ -84,6 +84,7 @@ const server = http.createServer(async(req, res) => {
 
   res.writeHead(200, {
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*'
   })
   res.write(JSON.stringify(CACHE[zip] || {}))
   res.end()

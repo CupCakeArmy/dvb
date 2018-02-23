@@ -2,9 +2,13 @@ const http = require('http')
 const https = require('https')
 
 // GET YOUR OWN AT: https://openweathermap.org/appid
-const APP_KEY = 'db597413fa4f4a8545b0f2bb43262f11'
+const APP_KEY = require('fs').readFileSync(__dirname + '/.key', {
+  encoding: 'utf-8',
+  flag: 'r'
+}).trim()
 
 const LISTEN = '8000'
+const HOST = '0.0.0.0'
 
 const REGEXP = {
   URL: /^\/[\d]{1,8}$/
@@ -67,7 +71,7 @@ function getUrlFromPath(path) {
     return path.replace('/', '')
 }
 
-const server = http.createServer(async(req, res) => {
+const server = http.createServer(async (req, res) => {
 
   const zip = getUrlFromPath(req.url)
   // Check if url is valid
@@ -96,8 +100,8 @@ function exit() {
 }
 
 function start() {
-  console.log(`Started server on: ${LISTEN}`)
-  server.listen(LISTEN)
+  console.log(`Started server on: ${LISTEN}. Using Key: ${APP_KEY}`)
+  server.listen(LISTEN, HOST)
 }
 
 // Register exit function

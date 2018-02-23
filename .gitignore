@@ -1,9 +1,4 @@
-# OS X
-.DS_Store*
-._*
+.key
 
-# npm
 node_modules
 package-lock.json
-*.log
-*.gz

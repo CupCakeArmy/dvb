@@ -1,0 +1,14 @@
+pipeline:
+  
+  copy:
+    image: appleboy/drone-scp
+    host: nicco.io
+    username: deploy
+    port: 1312
+    secrets: [ ssh_key ]
+    target: /srv/web/dvb
+    source: ./*
+    rm: true
+    when:
+      event: push
+      branch: master

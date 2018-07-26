@@ -8,7 +8,7 @@ Vue.component('dvb-weather', {
 			hz: 30,
 			cur: '...',
 			zip: '01217',
-			url: 'https://wundtstr.club/cache',
+			url: '/cache',
 			mapping: {
 				1: 11,
 				2: 9,

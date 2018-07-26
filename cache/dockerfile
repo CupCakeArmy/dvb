@@ -1,8 +1,0 @@
-FROM node:alpine
-
-WORKDIR /app
-USER nobody
-COPY ./app.js ./.key ./
-
-ENTRYPOINT [ "node" ]
-CMD [ "app.js" ]

@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  frontend:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/srv
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - dvb
+      - traefik
+    labels:
+      - traefik.enable=true
+      - traefik.port=80
+      - traefik.backend=dvb
+      - traefik.frontend.rule=Host:wundtstr.club
+  
+  cache:
+    image: node:alpine
+    command: node /app.js
+    volumes:
+      - ./cache/app.js:/app.js
+      - ./cache/.key:/.key
+    ports:
+      - 8000
+    networks: 
+      - dvb
+    restart: always
+
+networks:
+  dvb:
+  traefik:
+    external: true

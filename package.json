@@ -1,0 +1,10 @@
+{
+	"version": "1.0",
+	"author": {
+		"name": "Niccolo Borgioli",
+		"email": "hi@nicco.io",
+		"url": "https://nicco.io"
+	},
+	"license": "MIT",
+	"private": true
+}

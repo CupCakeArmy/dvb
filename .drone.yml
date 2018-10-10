@@ -11,14 +11,3 @@ pipeline:
     when:
       event: push
       branch: master
-  
-  reload:
-    image: appleboy/drone-ssh
-    host: nicco.io
-    username: deploy
-    port: 1312
-    secrets: [ ssh_key ]
-    script:
-      - cd /srv/web/dvb
-      - docker-compose down
-      - docker-compose up -d

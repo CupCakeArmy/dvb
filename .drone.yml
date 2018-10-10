@@ -19,6 +19,6 @@ pipeline:
     port: 1312
     secrets: [ ssh_key ]
     script:
-      - /srv/web/dvb
+      - cd /srv/web/dvb
       - docker-compose down
       - docker-compose up -d

@@ -19,5 +19,5 @@ pipeline:
     port: 1312
     secrets: [ ssh_key ]
     script:
-      - echo hello
-      - echo world
+      - docker-compose down
+      - docker-compose up -d

@@ -8,7 +8,16 @@ pipeline:
     secrets: [ ssh_key ]
     target: /srv/web/dvb
     source: ./*
-    rm: true
     when:
       event: push
       branch: master
+  
+  reload:
+    image: appleboy/drone-ssh
+    host: nicco.io
+    username: deploy
+    port: 1312
+    secrets: [ ssh_key ]
+    script:
+      - echo hello
+      - echo world
